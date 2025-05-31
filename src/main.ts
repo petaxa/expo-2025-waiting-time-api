@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { error400 } from "./responseUtils/error400";
+import { error400 } from "./responseUtils/httpErrors";
 import { all } from "./routes/all";
 import { ping } from "./routes/ping";
 import type { GoogleAppsResponseType } from "./types";

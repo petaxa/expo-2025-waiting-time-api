@@ -4103,23 +4103,59 @@ var v3_default = external_exports;
 var esm_default = v3_default;
 
 //#endregion
-//#region src/responseUtils/error400.ts
+//#region src/responseUtils/httpErrors.ts
 const error400 = (message) => {
 	return {
 		status: 400,
 		data: message
 	};
 };
+const error500 = (message) => {
+	return {
+		status: 500,
+		data: message
+	};
+};
+const error502 = (message) => {
+	return {
+		status: 502,
+		data: message
+	};
+};
+
+//#endregion
+//#region src/utils/useSpreadsheet.ts
+const DOC_ID = "14R9px2COU6-9UIgib2xY7ICh5sI-FDzcfC14iQXFj3U";
+const SHEET_NAME = "最新待ち時間";
+const useWaitingSheet = () => {
+	const doc = SpreadsheetApp.openById(DOC_ID);
+	const sheet = doc.getSheetByName(SHEET_NAME);
+	return sheet;
+};
 
 //#endregion
 //#region src/routes/all.ts
 const all = () => {
-	const data = [{
-		pavilionName: "pav!",
-		waitTime: "10min",
-		elapsedTime: "60min",
-		postedAt: "4:35"
-	}];
+	const sheet = useWaitingSheet();
+	if (!sheet) {
+		return error500("Data Source is Not Found.");
+	}
+	const SheetData = arrayType(tupleType([
+		stringType(),
+		stringType(),
+		stringType(),
+		unionType([dateType(), literalType("")])
+	]));
+	const { success, data: rowData } = SheetData.safeParse(sheet.getRange("B3:E104").getValues());
+	if (!success) {
+		return error502("Invalid Data Source Format.");
+	}
+	const data = rowData.map((d) => ({
+		pavilionName: d[0],
+		waitTime: d[1],
+		elapsedTime: d[2],
+		postedAt: String(d[3])
+	}));
 	return {
 		status: 200,
 		data
@@ -4154,6 +4190,18 @@ function doGet(e) {
 		case "ping": return createResponse(ping());
 		case "all": return createResponse(all());
 	}
+}
+function _testFunc() {
+	const sheet = useWaitingSheet();
+	const SheetData = arrayType(tupleType([
+		stringType(),
+		stringType(),
+		stringType(),
+		unionType([dateType(), literalType("")])
+	]));
+	const { success, data: rowData } = SheetData.safeParse(sheet?.getRange("B3:E104").getValues());
+	console.log("zod result: ", success);
+	console.log("zod error: ", rowData);
 }
 
 //#endregion
