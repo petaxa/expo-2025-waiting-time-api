@@ -1,0 +1,28 @@
+{
+  "name": "waiting-time-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/bundle.js",
+  "scripts": {
+    "test": "vitest",
+    "check": "biome check",
+    "bundle-push": "rolldown -c & clasp push",
+    "bundle": "rolldown -c",
+    "push": "clasp push",
+    "open-gas": "clasp open-script"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@9.5.0+sha512.140036830124618d624a2187b50d04289d5a087f326c9edfc0ccd733d76c4f52c3a313d4fc148794a2a9d81553016004e6742e8cf850670268a7387fc220c903",
+  "dependencies": {
+    "@google/clasp": "3.0.6-alpha",
+    "@types/google-apps-script": "^1.0.97",
+    "vitest": "^3.1.4",
+    "zod": "^3.25.42"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.9.4",
+    "rolldown": "1.0.0-beta.10"
+  }
+}

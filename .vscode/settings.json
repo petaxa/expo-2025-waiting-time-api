@@ -1,0 +1,27 @@
+{
+  "editor.defaultFormatter": "biomejs.biome",
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "quickfix.biome": "explicit",
+    "source.organizeImports.biome": "explicit"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "json.schemas": [
+    {
+      "fileMatch": ["appsscript.json"],
+      "url": "http://json.schemastore.org/appsscript"
+    },
+    {
+      "fileMatch": [".clasp.json"],
+      "url": "http://json.schemastore.org/clasp"
+    }
+  ],
+  "[ignore]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
+  }
+}
