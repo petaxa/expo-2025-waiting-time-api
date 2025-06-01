@@ -9,7 +9,7 @@ export const ResponseBody = z.object({
     z.string(),
     z.array(
       z.object({
-        pavilionName: z.string(),
+        osmId: z.string(),
         waitTime: z.string(),
         elapsedTime: z.string(),
         postedAt: z.string(),

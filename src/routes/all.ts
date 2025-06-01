@@ -1,38 +1,72 @@
-import { z } from "zod";
-import { error500, error502 } from "../responseUtils/httpErrors";
+import { error500 } from "../responseUtils/httpErrors";
 import type { ZodResponseBody } from "../types";
-import { useWaitingSheet } from "../utils/useSpreadsheet";
+import { tableJoin } from "../utils/tableUtils";
+import { usePavilionTable } from "../utils/useTable/usePavilionTable";
+import { useWaitingTable } from "../utils/useTable/useWaitingTable";
+import { parseWaitTime } from "../utils/useTable/useWaitingTable";
 
 export const all = (): ZodResponseBody => {
-  const sheet = useWaitingSheet();
-  if (!sheet) {
-    return error500("Data Source is Not Found.");
+  const waitingTable = useWaitingTable();
+  const pavilionTable = usePavilionTable();
+  if (!waitingTable.success || !pavilionTable.success) {
+    return error500("DB Issue.");
   }
 
-  const SheetData = z.array(
-    z.tuple([
-      z.string(),
-      z.string(),
-      z.string(),
-      z.union([z.date(), z.literal("")]),
-    ]),
+  const joinedTable = tableJoin(
+    waitingTable.data,
+    pavilionTable.data,
+    "pavilionName",
   );
 
-  const { success, data: rowData } = SheetData.safeParse(
-    sheet.getRange("B3:E104").getValues(),
-  );
-  if (!success) {
-    return error502("Invalid Data Source Format.");
-  }
-
-  const data: ZodResponseBody["data"] = rowData.map((d) => ({
-    pavilionName: d[0],
-    waitTime: d[1],
-    elapsedTime: d[2],
-    postedAt: String(d[3]),
+  const now = Date.now();
+  const data = dedupByOsmId(joinedTable, (current: Row, picked: Row) =>
+    isBetter(current, picked, now),
+  ).map((row) => ({
+    osmId: row.osmId,
+    waitTime: row.waitTime,
+    elapsedTime: row.elapsedTime,
+    postedAt: row.postedAt,
   }));
+
   return {
     status: 200,
     data,
   };
 };
+
+type Row = {
+  osmId: string;
+  waitTime: string;
+  postedAt: string;
+};
+
+function isBetter(a: Row, b: Row, now: number): boolean {
+  // 投稿時間が最近のものを優先
+  const diffA = Math.abs(Date.parse(a.postedAt) - now);
+  const diffB = Math.abs(Date.parse(b.postedAt) - now);
+  if (diffA !== diffB) return diffA < diffB;
+
+  // 待ち時間が大きいほうを優先
+  const waitA = parseWaitTime(a.waitTime) ?? 0;
+  const waitB = parseWaitTime(b.waitTime) ?? 0;
+  if (waitA !== waitB) return waitA > waitB;
+
+  // ここまで同値なら、第一引数を尊重
+  return false;
+}
+
+function dedupByOsmId<T extends Row>(
+  list: T[],
+  comp: (current: Row, picked: Row) => boolean,
+): T[] {
+  const best = new Map<string, T>();
+
+  for (const row of list) {
+    const current = best.get(row.osmId);
+    if (!current || comp(current, row)) {
+      best.set(row.osmId, row);
+    }
+  }
+
+  return [...best.values()];
+}

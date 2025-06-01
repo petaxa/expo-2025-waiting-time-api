@@ -4124,43 +4124,141 @@ const error502 = (message) => {
 };
 
 //#endregion
+//#region src/utils/tableUtils.ts
+function tableJoin(tableOne, tableTwo, key) {
+	const index = new Map(tableTwo.map((rowB) => [rowB[key], rowB]));
+	return tableOne.flatMap((rowA) => {
+		const matched = index.get(rowA[key]);
+		return matched ? {
+			...rowA,
+			...matched
+		} : [];
+	});
+}
+
+//#endregion
 //#region src/utils/useSpreadsheet.ts
 const DOC_ID = "14R9px2COU6-9UIgib2xY7ICh5sI-FDzcfC14iQXFj3U";
-const SHEET_NAME = "最新待ち時間";
 const useWaitingSheet = () => {
+	const SHEET_NAME = "最新待ち時間";
+	const doc = SpreadsheetApp.openById(DOC_ID);
+	const sheet = doc.getSheetByName(SHEET_NAME);
+	return sheet;
+};
+const usePavilionSheet = () => {
+	const SHEET_NAME = "パビリオンインフォ";
 	const doc = SpreadsheetApp.openById(DOC_ID);
 	const sheet = doc.getSheetByName(SHEET_NAME);
 	return sheet;
 };
 
 //#endregion
-//#region src/routes/all.ts
-const all = () => {
-	const sheet = useWaitingSheet();
+//#region src/utils/useTable/utils.ts
+function useTableData(useSheet, range, sheetSchema, transform) {
+	const sheet = useSheet();
 	if (!sheet) {
-		return error500("Data Source is Not Found.");
+		return {
+			success: false,
+			data: null
+		};
 	}
-	const SheetData = arrayType(tupleType([
-		stringType(),
-		stringType(),
-		stringType(),
-		unionType([dateType(), literalType("")])
-	]));
-	const { success, data: rowData } = SheetData.safeParse(sheet.getRange("B3:E104").getValues());
+	const { success, data: rowData } = sheetSchema.safeParse(sheet.getRange(range).getValues());
 	if (!success) {
-		return error502("Invalid Data Source Format.");
+		return {
+			success: false,
+			data: null
+		};
 	}
-	const data = rowData.map((d) => ({
-		pavilionName: d[0],
+	const data = transform(rowData);
+	return {
+		success: true,
+		data
+	};
+}
+
+//#endregion
+//#region src/utils/useTable/usePavilionTable.ts
+const usePavilionTable = () => {
+	const SheetSchema = esm_default.array(esm_default.tuple([
+		esm_default.string(),
+		esm_default.string(),
+		esm_default.string()
+	]));
+	return useTableData(usePavilionSheet, "A2:C103", SheetSchema, (rowData) => rowData.map((d) => ({
+		pavilionName: d[0].replace(/\r?\n/g, ""),
+		englishName: d[1],
+		osmId: d[2]
+	})));
+};
+
+//#endregion
+//#region src/utils/useTable/useWaitingTable.ts
+const useWaitingTable = () => {
+	const SheetSchema = esm_default.array(esm_default.tuple([
+		esm_default.string(),
+		esm_default.string(),
+		esm_default.string(),
+		esm_default.union([esm_default.date(), esm_default.literal("")])
+	]));
+	return useTableData(useWaitingSheet, "B3:E104", SheetSchema, (rowData) => rowData.map((d) => ({
+		pavilionName: d[0].replace(/\r?\n/g, ""),
 		waitTime: d[1],
 		elapsedTime: d[2],
 		postedAt: String(d[3])
+	})));
+};
+/**
+* waitTime の文字列を分の数値に変換する
+* @param waitingTime
+*/
+const parseWaitTime = (waitTime) => {
+	const m = waitTime.match(/^(\d+時間)?\s*(\d+分)?$/);
+	if (!m) return null;
+	const hours = m[1] ? Number(m[1].replace("時間", "")) : 0;
+	const minutes = m[2] ? Number(m[2].replace("分", "")) : 0;
+	return hours * 60 + minutes;
+};
+
+//#endregion
+//#region src/routes/all.ts
+const all = () => {
+	const waitingTable = useWaitingTable();
+	const pavilionTable = usePavilionTable();
+	if (!waitingTable.success || !pavilionTable.success) {
+		return error500("DB Issue.");
+	}
+	const joinedTable = tableJoin(waitingTable.data, pavilionTable.data, "pavilionName");
+	const now = Date.now();
+	const data = dedupByOsmId(joinedTable, (current, picked) => isBetter(current, picked, now)).map((row) => ({
+		osmId: row.osmId,
+		waitTime: row.waitTime,
+		elapsedTime: row.elapsedTime,
+		postedAt: row.postedAt
 	}));
 	return {
 		status: 200,
 		data
 	};
 };
+function isBetter(a, b, now) {
+	const diffA = Math.abs(Date.parse(a.postedAt) - now);
+	const diffB = Math.abs(Date.parse(b.postedAt) - now);
+	if (diffA !== diffB) return diffA < diffB;
+	const waitA = parseWaitTime(a.waitTime) ?? 0;
+	const waitB = parseWaitTime(b.waitTime) ?? 0;
+	if (waitA !== waitB) return waitA > waitB;
+	return false;
+}
+function dedupByOsmId(list, comp) {
+	const best = new Map();
+	for (const row of list) {
+		const current = best.get(row.osmId);
+		if (!current || comp(current, row)) {
+			best.set(row.osmId, row);
+		}
+	}
+	return [...best.values()];
+}
 
 //#endregion
 //#region src/routes/ping.ts
@@ -4190,18 +4288,6 @@ function doGet(e) {
 		case "ping": return createResponse(ping());
 		case "all": return createResponse(all());
 	}
-}
-function _testFunc() {
-	const sheet = useWaitingSheet();
-	const SheetData = arrayType(tupleType([
-		stringType(),
-		stringType(),
-		stringType(),
-		unionType([dateType(), literalType("")])
-	]));
-	const { success, data: rowData } = SheetData.safeParse(sheet?.getRange("B3:E104").getValues());
-	console.log("zod result: ", success);
-	console.log("zod error: ", rowData);
 }
 
 //#endregion
