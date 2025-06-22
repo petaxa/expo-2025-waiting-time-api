@@ -40,7 +40,8 @@ async fn main() -> anyhow::Result<()> {
         .json()
         .await?;
 
-    let output_path = git_repo.join("docs").join("output.json");
+    const FILENAME: &str = "waiting-time.json";
+    let output_path = git_repo.join("docs").join(FILENAME);
     if let Some(parent) = output_path.parent() {
         fs::create_dir_all(parent).await?;
     }
@@ -48,8 +49,9 @@ async fn main() -> anyhow::Result<()> {
     let mut file = File::create(output_path).await?;
     let data = serde_json::to_vec_pretty(&json)?;
     file.write_all(&data).await?;
+    drop(file);
 
-    run_git(&git_repo, &["add", "docs/waiting-time.json"]).await?;
+    run_git(&git_repo, &["add", &format!("docs/{}", FILENAME)]).await?;
 
     let status = run_git(&git_repo, &["status", "--porcelain"]).await?;
     if status.is_empty() {
@@ -58,7 +60,8 @@ async fn main() -> anyhow::Result<()> {
     }
 
     let msg = format!(
-        "Update waiting-time.json {}",
+        "Update {} {}",
+        FILENAME,
         Local::now().format("%Y-%m-%d %H:%M:%S %z")
     );
     run_git(&git_repo, &["commit", "-m", &msg]).await?;
