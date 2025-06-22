@@ -61,7 +61,7 @@ async fn main() -> anyhow::Result<()> {
         "Update waiting-time.json {}",
         Local::now().format("%Y-%m-%d %H:%M:%S %z")
     );
-    run_git(&git_repo, &["commit", "-m", msg]).await?;
+    run_git(&git_repo, &["commit", "-m", &msg]).await?;
 
     let branch = run_git(&git_repo, &["rev-parse", "--abbrev-ref", "HEAD"]).await?;
 
