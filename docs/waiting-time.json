@@ -1,0 +1,581 @@
+{
+  "data": [
+    {
+      "elapsedTime": "60分以上前",
+      "osmId": "way/1381316144",
+      "postedAt": "Sun Jun 22 2025 20:34:59 GMT+0900 (日本標準時)",
+      "waitTime": "停止"
+    },
+    {
+      "elapsedTime": "情報なし",
+      "osmId": "node/12790712846",
+      "postedAt": "",
+      "waitTime": "情報なし"
+    },
+    {
+      "elapsedTime": "60分以上前",
+      "osmId": "way/1381316142",
+      "postedAt": "Sun Jun 22 2025 19:50:12 GMT+0900 (日本標準時)",
+      "waitTime": "1時間30分"
+    },
+    {
+      "elapsedTime": "60分以上前",
+      "osmId": "way/1381316141",
+      "postedAt": "Sun Jun 22 2025 15:09:13 GMT+0900 (日本標準時)",
+      "waitTime": "1時間00分"
+    },
+    {
+      "elapsedTime": "60分以上前",
+      "osmId": "way/1381316138",
+      "postedAt": "Sun Jun 22 2025 18:36:18 GMT+0900 (日本標準時)",
+      "waitTime": "停止"
+    },
+    {
+      "elapsedTime": "60分以上前",
+      "osmId": "way/1381316135",
+      "postedAt": "Sun Jun 22 2025 20:38:01 GMT+0900 (日本標準時)",
+      "waitTime": "0時間10分以下"
+    },
+    {
+      "elapsedTime": "60分以上前",
+      "osmId": "way/1381316133",
+      "postedAt": "Sun Jun 22 2025 19:12:35 GMT+0900 (日本標準時)",
+      "waitTime": "停止"
+    },
+    {
+      "elapsedTime": "60分以上前",
+      "osmId": "way/1381316132",
+      "postedAt": "Sun Jun 22 2025 18:26:18 GMT+0900 (日本標準時)",
+      "waitTime": "停止"
+    },
+    {
+      "elapsedTime": "情報なし",
+      "osmId": "way/1350834625",
+      "postedAt": "",
+      "waitTime": "情報なし"
+    },
+    {
+      "elapsedTime": "60分以上前",
+      "osmId": "way/1381316131",
+      "postedAt": "Sun Jun 22 2025 18:55:56 GMT+0900 (日本標準時)",
+      "waitTime": "0時間30分"
+    },
+    {
+      "elapsedTime": "60分以上前",
+      "osmId": "way/1381316129",
+      "postedAt": "Sun Jun 22 2025 20:18:09 GMT+0900 (日本標準時)",
+      "waitTime": "0時間30分"
+    },
+    {
+      "elapsedTime": "60分以上前",
+      "osmId": "way/1381316126",
+      "postedAt": "Sun Jun 22 2025 18:59:43 GMT+0900 (日本標準時)",
+      "waitTime": "0時間45分"
+    },
+    {
+      "elapsedTime": "60分以上前",
+      "osmId": "way/1381316123",
+      "postedAt": "Sun Jun 22 2025 19:01:47 GMT+0900 (日本標準時)",
+      "waitTime": "0時間30分"
+    },
+    {
+      "elapsedTime": "60分以上前",
+      "osmId": "way/1381316120",
+      "postedAt": "Sun Jun 22 2025 19:42:57 GMT+0900 (日本標準時)",
+      "waitTime": "0時間20分"
+    },
+    {
+      "elapsedTime": "60分以上前",
+      "osmId": "way/1381316117",
+      "postedAt": "Sun Jun 22 2025 20:06:38 GMT+0900 (日本標準時)",
+      "waitTime": "0時間10分以下"
+    },
+    {
+      "elapsedTime": "60分以上前",
+      "osmId": "way/1383214433",
+      "postedAt": "Sun Jun 22 2025 18:06:31 GMT+0900 (日本標準時)",
+      "waitTime": "停止"
+    },
+    {
+      "elapsedTime": "60分以上前",
+      "osmId": "way/1381316116",
+      "postedAt": "Sun Jun 22 2025 20:16:42 GMT+0900 (日本標準時)",
+      "waitTime": "停止"
+    },
+    {
+      "elapsedTime": "60分以上前",
+      "osmId": "node/12769694182",
+      "postedAt": "Sun Jun 22 2025 20:38:45 GMT+0900 (日本標準時)",
+      "waitTime": "0時間10分以下"
+    },
+    {
+      "elapsedTime": "60分以上前",
+      "osmId": "node/12790713291",
+      "postedAt": "Sun Jun 22 2025 16:13:08 GMT+0900 (日本標準時)",
+      "waitTime": "停止"
+    },
+    {
+      "elapsedTime": "60分以上前",
+      "osmId": "way/1381316112",
+      "postedAt": "Sun Jun 22 2025 19:25:58 GMT+0900 (日本標準時)",
+      "waitTime": "0時間10分以下"
+    },
+    {
+      "elapsedTime": "60分以上前",
+      "osmId": "way/1381316111",
+      "postedAt": "Sun Jun 22 2025 20:21:46 GMT+0900 (日本標準時)",
+      "waitTime": "停止"
+    },
+    {
+      "elapsedTime": "60分以上前",
+      "osmId": "way/1381316110",
+      "postedAt": "Sun Jun 22 2025 15:23:34 GMT+0900 (日本標準時)",
+      "waitTime": "0時間25分"
+    },
+    {
+      "elapsedTime": "情報なし",
+      "osmId": "node/12769702374",
+      "postedAt": "",
+      "waitTime": "情報なし"
+    },
+    {
+      "elapsedTime": "情報なし",
+      "osmId": "node/12790713292",
+      "postedAt": "",
+      "waitTime": "情報なし"
+    },
+    {
+      "elapsedTime": "60分以上前",
+      "osmId": "node/12790713290",
+      "postedAt": "Sun Jun 22 2025 13:35:10 GMT+0900 (日本標準時)",
+      "waitTime": "2時間00分"
+    },
+    {
+      "elapsedTime": "60分以上前",
+      "osmId": "node/12769694181",
+      "postedAt": "Sun Jun 22 2025 20:48:20 GMT+0900 (日本標準時)",
+      "waitTime": "0時間10分以下"
+    },
+    {
+      "elapsedTime": "情報なし",
+      "osmId": "node/12790712844",
+      "postedAt": "",
+      "waitTime": "情報なし"
+    },
+    {
+      "elapsedTime": "60分以上前",
+      "osmId": "way/1381316125",
+      "postedAt": "Sun Jun 22 2025 19:36:25 GMT+0900 (日本標準時)",
+      "waitTime": "0時間30分"
+    },
+    {
+      "elapsedTime": "60分以上前",
+      "osmId": "way/1381316118",
+      "postedAt": "Sun Jun 22 2025 19:53:28 GMT+0900 (日本標準時)",
+      "waitTime": "0時間10分以下"
+    },
+    {
+      "elapsedTime": "情報なし",
+      "osmId": "way/1381316143",
+      "postedAt": "",
+      "waitTime": "情報なし"
+    },
+    {
+      "elapsedTime": "60分以上前",
+      "osmId": "way/1381306369",
+      "postedAt": "Sun Jun 22 2025 20:38:17 GMT+0900 (日本標準時)",
+      "waitTime": "停止"
+    },
+    {
+      "elapsedTime": "60分以上前",
+      "osmId": "way/1381316140",
+      "postedAt": "Sun Jun 22 2025 17:20:44 GMT+0900 (日本標準時)",
+      "waitTime": "停止"
+    },
+    {
+      "elapsedTime": "60分以上前",
+      "osmId": "node/12772258487",
+      "postedAt": "Sun Jun 22 2025 18:36:42 GMT+0900 (日本標準時)",
+      "waitTime": "0時間35分"
+    },
+    {
+      "elapsedTime": "60分以上前",
+      "osmId": "way/1381306370",
+      "postedAt": "Sun Jun 22 2025 16:17:07 GMT+0900 (日本標準時)",
+      "waitTime": "0時間20分"
+    },
+    {
+      "elapsedTime": "情報なし",
+      "osmId": "way/1350834630",
+      "postedAt": "",
+      "waitTime": "情報なし"
+    },
+    {
+      "elapsedTime": "情報なし",
+      "osmId": "way/1366032390",
+      "postedAt": "",
+      "waitTime": "情報なし"
+    },
+    {
+      "elapsedTime": "60分以上前",
+      "osmId": "way/1381306371",
+      "postedAt": "Sun Jun 22 2025 17:20:57 GMT+0900 (日本標準時)",
+      "waitTime": "0時間10分以下"
+    },
+    {
+      "elapsedTime": "60分以上前",
+      "osmId": "way/1381316128",
+      "postedAt": "Sun Jun 22 2025 18:43:25 GMT+0900 (日本標準時)",
+      "waitTime": "0時間10分以下"
+    },
+    {
+      "elapsedTime": "情報なし",
+      "osmId": "node/12772258488",
+      "postedAt": "",
+      "waitTime": "情報なし"
+    },
+    {
+      "elapsedTime": "60分以上前",
+      "osmId": "way/1382519032",
+      "postedAt": "Sun Jun 22 2025 18:38:44 GMT+0900 (日本標準時)",
+      "waitTime": "0時間50分"
+    },
+    {
+      "elapsedTime": "60分以上前",
+      "osmId": "way/1381316127",
+      "postedAt": "Sun Jun 22 2025 17:09:16 GMT+0900 (日本標準時)",
+      "waitTime": "0時間30分"
+    },
+    {
+      "elapsedTime": "60分以上前",
+      "osmId": "way/1381316124",
+      "postedAt": "Sun Jun 22 2025 20:33:43 GMT+0900 (日本標準時)",
+      "waitTime": "停止"
+    },
+    {
+      "elapsedTime": "60分以上前",
+      "osmId": "way/1381316122",
+      "postedAt": "Sun Jun 22 2025 13:24:41 GMT+0900 (日本標準時)",
+      "waitTime": "0時間15分"
+    },
+    {
+      "elapsedTime": "情報なし",
+      "osmId": "way/1383214438",
+      "postedAt": "",
+      "waitTime": "情報なし"
+    },
+    {
+      "elapsedTime": "60分以上前",
+      "osmId": "node/12772258489",
+      "postedAt": "Sun Jun 22 2025 14:16:25 GMT+0900 (日本標準時)",
+      "waitTime": "0時間10分以下"
+    },
+    {
+      "elapsedTime": "60分以上前",
+      "osmId": "way/1381316109",
+      "postedAt": "Sun Jun 22 2025 12:07:19 GMT+0900 (日本標準時)",
+      "waitTime": "0時間25分"
+    },
+    {
+      "elapsedTime": "情報なし",
+      "osmId": "way/1383214463",
+      "postedAt": "",
+      "waitTime": "情報なし"
+    },
+    {
+      "elapsedTime": "60分以上前",
+      "osmId": "way/1381316108",
+      "postedAt": "Sun Jun 22 2025 19:30:37 GMT+0900 (日本標準時)",
+      "waitTime": "0時間45分"
+    },
+    {
+      "elapsedTime": "60分以上前",
+      "osmId": "way/1381316134",
+      "postedAt": "Sun Jun 22 2025 19:32:10 GMT+0900 (日本標準時)",
+      "waitTime": "0時間30分"
+    },
+    {
+      "elapsedTime": "情報なし",
+      "osmId": "way/1383214435",
+      "postedAt": "",
+      "waitTime": "情報なし"
+    },
+    {
+      "elapsedTime": "情報なし",
+      "osmId": "way/1382805113",
+      "postedAt": "",
+      "waitTime": "情報なし"
+    },
+    {
+      "elapsedTime": "情報なし",
+      "osmId": "way/1382805114",
+      "postedAt": "",
+      "waitTime": "情報なし"
+    },
+    {
+      "elapsedTime": "情報なし",
+      "osmId": "way/1382805105",
+      "postedAt": "",
+      "waitTime": "情報なし"
+    },
+    {
+      "elapsedTime": "情報なし",
+      "osmId": "way/1382805109",
+      "postedAt": "",
+      "waitTime": "情報なし"
+    },
+    {
+      "elapsedTime": "情報なし",
+      "osmId": "way/1382805106",
+      "postedAt": "",
+      "waitTime": "情報なし"
+    },
+    {
+      "elapsedTime": "情報なし",
+      "osmId": "way/1382805107",
+      "postedAt": "",
+      "waitTime": "情報なし"
+    },
+    {
+      "elapsedTime": "情報なし",
+      "osmId": "way/1382805104",
+      "postedAt": "",
+      "waitTime": "情報なし"
+    },
+    {
+      "elapsedTime": "60分以上前",
+      "osmId": "node/12772258415",
+      "postedAt": "Sun Jun 22 2025 15:50:04 GMT+0900 (日本標準時)",
+      "waitTime": "0時間20分"
+    },
+    {
+      "elapsedTime": "60分以上前",
+      "osmId": "node/12772258417",
+      "postedAt": "Sun Jun 22 2025 16:30:02 GMT+0900 (日本標準時)",
+      "waitTime": "0時間18分"
+    },
+    {
+      "elapsedTime": "情報なし",
+      "osmId": "way/1382805101",
+      "postedAt": "",
+      "waitTime": "情報なし"
+    },
+    {
+      "elapsedTime": "60分以上前",
+      "osmId": "way/1381316121",
+      "postedAt": "Sun Jun 22 2025 12:11:12 GMT+0900 (日本標準時)",
+      "waitTime": "3時間00分"
+    },
+    {
+      "elapsedTime": "60分以上前",
+      "osmId": "way/1381316137",
+      "postedAt": "Sun Jun 22 2025 14:43:11 GMT+0900 (日本標準時)",
+      "waitTime": "0時間30分"
+    },
+    {
+      "elapsedTime": "60分以上前",
+      "osmId": "way/1381316136",
+      "postedAt": "Sun Jun 22 2025 18:38:41 GMT+0900 (日本標準時)",
+      "waitTime": "0時間10分以下"
+    },
+    {
+      "elapsedTime": "60分以上前",
+      "osmId": "node/12772258418",
+      "postedAt": "Sun Jun 22 2025 17:11:38 GMT+0900 (日本標準時)",
+      "waitTime": "0時間10分以下"
+    },
+    {
+      "elapsedTime": "60分以上前",
+      "osmId": "way/1350834624",
+      "postedAt": "Sun Jun 22 2025 15:07:56 GMT+0900 (日本標準時)",
+      "waitTime": "0時間15分"
+    },
+    {
+      "elapsedTime": "情報なし",
+      "osmId": "way/1350834632",
+      "postedAt": "",
+      "waitTime": "情報なし"
+    },
+    {
+      "elapsedTime": "情報なし",
+      "osmId": "way/1366067868",
+      "postedAt": "",
+      "waitTime": "情報なし"
+    },
+    {
+      "elapsedTime": "60分以上前",
+      "osmId": "way/1381316130",
+      "postedAt": "Sun Jun 22 2025 20:00:14 GMT+0900 (日本標準時)",
+      "waitTime": "0時間20分"
+    },
+    {
+      "elapsedTime": "60分以上前",
+      "osmId": "node/12772258419",
+      "postedAt": "Sun Jun 22 2025 17:24:19 GMT+0900 (日本標準時)",
+      "waitTime": "1時間00分"
+    },
+    {
+      "elapsedTime": "情報なし",
+      "osmId": "node/12772258420",
+      "postedAt": "",
+      "waitTime": "情報なし"
+    },
+    {
+      "elapsedTime": "60分以上前",
+      "osmId": "node/12772258416",
+      "postedAt": "Sun Jun 22 2025 11:35:22 GMT+0900 (日本標準時)",
+      "waitTime": "0時間10分以下"
+    },
+    {
+      "elapsedTime": "60分以上前",
+      "osmId": "way/1381316119",
+      "postedAt": "Sun Jun 22 2025 15:23:10 GMT+0900 (日本標準時)",
+      "waitTime": "0時間35分"
+    },
+    {
+      "elapsedTime": "60分以上前",
+      "osmId": "way/1381316115",
+      "postedAt": "Sun Jun 22 2025 14:58:00 GMT+0900 (日本標準時)",
+      "waitTime": "2時間00分"
+    },
+    {
+      "elapsedTime": "情報なし",
+      "osmId": "way/1381316113",
+      "postedAt": "",
+      "waitTime": "情報なし"
+    },
+    {
+      "elapsedTime": "60分以上前",
+      "osmId": "way/1381316114",
+      "postedAt": "Sun Jun 22 2025 13:25:55 GMT+0900 (日本標準時)",
+      "waitTime": "0時間40分"
+    },
+    {
+      "elapsedTime": "60分以上前",
+      "osmId": "way/1382805100",
+      "postedAt": "Sun Jun 22 2025 14:14:21 GMT+0900 (日本標準時)",
+      "waitTime": "1時間30分"
+    },
+    {
+      "elapsedTime": "60分以上前",
+      "osmId": "way/1381316139",
+      "postedAt": "Sun Jun 22 2025 19:39:31 GMT+0900 (日本標準時)",
+      "waitTime": "1時間00分"
+    },
+    {
+      "elapsedTime": "60分以上前",
+      "osmId": "",
+      "postedAt": "Sun Jun 22 2025 11:19:30 GMT+0900 (日本標準時)",
+      "waitTime": "0時間30分"
+    },
+    {
+      "elapsedTime": "60分以上前",
+      "osmId": "way/1383214584",
+      "postedAt": "Sun Jun 22 2025 18:41:45 GMT+0900 (日本標準時)",
+      "waitTime": "0時間15分"
+    },
+    {
+      "elapsedTime": "60分以上前",
+      "osmId": "way/1383214522",
+      "postedAt": "Sun Jun 22 2025 13:38:43 GMT+0900 (日本標準時)",
+      "waitTime": "0時間30分"
+    },
+    {
+      "elapsedTime": "情報なし",
+      "osmId": "way/1383214523",
+      "postedAt": "",
+      "waitTime": "情報なし"
+    },
+    {
+      "elapsedTime": "情報なし",
+      "osmId": "way/1383214508",
+      "postedAt": "",
+      "waitTime": "情報なし"
+    },
+    {
+      "elapsedTime": "60分以上前",
+      "osmId": "way/1383214546",
+      "postedAt": "Sun Jun 22 2025 19:56:48 GMT+0900 (日本標準時)",
+      "waitTime": "1時間00分"
+    },
+    {
+      "elapsedTime": "60分以上前",
+      "osmId": "way/1383214511",
+      "postedAt": "Sun Jun 22 2025 14:24:38 GMT+0900 (日本標準時)",
+      "waitTime": "停止"
+    },
+    {
+      "elapsedTime": "情報なし",
+      "osmId": "way/1383214510",
+      "postedAt": "",
+      "waitTime": "情報なし"
+    },
+    {
+      "elapsedTime": "60分以上前",
+      "osmId": "way/1383214556",
+      "postedAt": "Sun Jun 22 2025 19:12:18 GMT+0900 (日本標準時)",
+      "waitTime": "0時間10分以下"
+    },
+    {
+      "elapsedTime": "60分以上前",
+      "osmId": "way/1383214509",
+      "postedAt": "Sun Jun 22 2025 17:36:32 GMT+0900 (日本標準時)",
+      "waitTime": "0時間40分"
+    },
+    {
+      "elapsedTime": "情報なし",
+      "osmId": "way/1380586192",
+      "postedAt": "",
+      "waitTime": "情報なし"
+    },
+    {
+      "elapsedTime": "60分以上前",
+      "osmId": "way/1382815781",
+      "postedAt": "Sun Jun 22 2025 15:38:22 GMT+0900 (日本標準時)",
+      "waitTime": "2時間00分"
+    },
+    {
+      "elapsedTime": "情報なし",
+      "osmId": "way/1382221591",
+      "postedAt": "",
+      "waitTime": "情報なし"
+    },
+    {
+      "elapsedTime": "情報なし",
+      "osmId": "way/1366032379",
+      "postedAt": "",
+      "waitTime": "情報なし"
+    },
+    {
+      "elapsedTime": "60分以上前",
+      "osmId": "way/1382221587",
+      "postedAt": "Sun Jun 22 2025 19:46:09 GMT+0900 (日本標準時)",
+      "waitTime": "0時間30分"
+    },
+    {
+      "elapsedTime": "60分以上前",
+      "osmId": "way/1382815794",
+      "postedAt": "Sun Jun 22 2025 19:01:24 GMT+0900 (日本標準時)",
+      "waitTime": "停止"
+    },
+    {
+      "elapsedTime": "60分以上前",
+      "osmId": "way/1382232122",
+      "postedAt": "Sun Jun 22 2025 14:57:16 GMT+0900 (日本標準時)",
+      "waitTime": "0時間40分"
+    },
+    {
+      "elapsedTime": "情報なし",
+      "osmId": "way/1382815793",
+      "postedAt": "",
+      "waitTime": "情報なし"
+    },
+    {
+      "elapsedTime": "60分以上前",
+      "osmId": "way/1382815782",
+      "postedAt": "Sun Jun 22 2025 10:12:57 GMT+0900 (日本標準時)",
+      "waitTime": "1時間00分"
+    }
+  ],
+  "status": 200
+}
