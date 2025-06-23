@@ -71,6 +71,8 @@ async fn main() -> anyhow::Result<()> {
 
     run_git(&git_repo, &["push", "origin", &branch]).await?;
 
+    println!("差分をプッシュしました");
+
     Ok(())
 }
 
