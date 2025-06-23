@@ -32,4 +32,4 @@ jobs:
         run: |
           ssh -p ${{ secrets.VPS_PORT }} -o StrictHostKeyChecking=no \
             tempest@${{ secrets.VPS_IP }} \
-            'sudo systemctl restart waiting-time-batch.service'
+            'systemctl --user restart waiting-time-batch.timer'
