@@ -11,10 +11,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: dtolnay/rust-toolchain@stable
-      - name: Build backend
+      - name: Build batch-json
         run: |
           cd batch-json
-          cargo build --release -p backend
+          cargo build --release -p batch-json
 
       - name: Set up ssh-agent
         uses: webfactory/ssh-agent@v0.9.0
@@ -25,7 +25,7 @@ jobs:
         run: |
           rsync -avz \
             -e "ssh -p ${{ secrets.VPS_PORT }} -o StrictHostKeyChecking=no" \
-            ./batch-json/target/release/backend \
+            ./batch-json/target/release/batch-json \
             tempest@${{ secrets.VPS_IP }}:/srv/waiting-time-batch/
 
       - name: Restart service
