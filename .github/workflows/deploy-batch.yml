@@ -26,7 +26,7 @@ jobs:
           rsync -avz \
             -e "ssh -p ${{ secrets.VPS_PORT }} -o StrictHostKeyChecking=no" \
             ./batch-json/target/release/batch-json \
-            tempest@${{ secrets.VPS_IP }}:/srv/waiting-time-batch/
+            tempest@${{ secrets.VPS_IP }}:~/waiting-time-batch/
 
       - name: Restart service
         run: |
