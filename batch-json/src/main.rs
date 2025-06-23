@@ -10,6 +10,7 @@ use tokio::fs::{self, File};
 use tokio::io::AsyncWriteExt;
 
 #[derive(Parser)]
+#[command(name = "batch-json")]
 struct Cli {
     /// Git リポジトリのルート
     target_repo_path: PathBuf,
