@@ -32,7 +32,7 @@ async fn main() -> anyhow::Result<()> {
         .await?;
 
     const FILENAME: &str = "waiting-time.json";
-    let output_path = repo.join("docs").join(FILENAME);
+    let output_path = repo.join(FILENAME);
     if let Some(parent) = output_path.parent() {
         fs::create_dir_all(parent).await?;
     }
