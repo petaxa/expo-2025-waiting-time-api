@@ -1,11 +1,9 @@
-use anyhow::{Context, Result};
+use anyhow;
 use chrono::Local;
 use clap::Parser;
 use reqwest::Client;
 use serde_json::Value;
-use std::path::Path;
 use std::path::PathBuf;
-use std::process::Command;
 use tokio::fs::{self, File};
 use tokio::io::AsyncWriteExt;
 
@@ -20,18 +18,10 @@ struct Cli {
 async fn main() -> anyhow::Result<()> {
     let cli = Cli::parse();
 
-    let git_repo = &cli.target_repo_path;
+    let repo = &cli.target_repo_path;
     // ディレクトリとして存在するか？
-    if !git_repo.is_dir() {
-        anyhow::bail!("指定したパス {:?} は存在しません", git_repo);
-    }
-
-    // .git があるか？
-    if !git_repo.join(".git").is_dir() {
-        anyhow::bail!(
-            "{:?} は Git リポジトリではありません（.git がありません）",
-            git_repo
-        );
+    if !repo.is_dir() {
+        anyhow::bail!("指定したパス {:?} は存在しません", repo);
     }
 
     let json: Value = Client::new()
@@ -42,7 +32,7 @@ async fn main() -> anyhow::Result<()> {
         .await?;
 
     const FILENAME: &str = "waiting-time.json";
-    let output_path = git_repo.join("docs").join(FILENAME);
+    let output_path = repo.join("docs").join(FILENAME);
     if let Some(parent) = output_path.parent() {
         fs::create_dir_all(parent).await?;
     }
@@ -52,44 +42,11 @@ async fn main() -> anyhow::Result<()> {
     file.write_all(&data).await?;
     drop(file);
 
-    run_git(&git_repo, &["add", &format!("docs/{}", FILENAME)]).await?;
-
-    let status = run_git(&git_repo, &["status", "--porcelain"]).await?;
-    if status.is_empty() {
-        println!("コミットもプッシュもスキップします");
-        return Ok(());
-    }
-
-    let msg = format!(
+    println!(
         "Update {} {}",
         FILENAME,
         Local::now().format("%Y-%m-%d %H:%M:%S %z")
     );
-    run_git(&git_repo, &["commit", "-m", &msg]).await?;
-
-    let branch = run_git(&git_repo, &["rev-parse", "--abbrev-ref", "HEAD"]).await?;
-
-    run_git(&git_repo, &["push", "origin", &branch]).await?;
-
-    println!("差分をプッシュしました");
 
     Ok(())
-}
-
-async fn run_git(repo: &Path, args: &[&str]) -> Result<String> {
-    let output = Command::new("git")
-        .args(args)
-        .current_dir(repo) // 実行ディレクトリを指定
-        .output()
-        .with_context(|| format!("git {:?} の実行に失敗", args))?;
-
-    if !output.status.success() {
-        anyhow::bail!(
-            "git {:?} がエラー終了: {}",
-            args,
-            String::from_utf8_lossy(&output.stderr)
-        );
-    }
-
-    Ok(String::from_utf8_lossy(&output.stdout).trim().to_string())
 }
